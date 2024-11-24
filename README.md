@@ -6,7 +6,7 @@ Este projeto tem como objetivo desenvolver um sistema que demonstre a capacidade
 
 A escolha do Apache Spark se justifica por ser uma das ferramentas mais robustas e amplamente utilizadas para processamento de grandes volumes de dados, oferecendo suporte nativo à integração com Scala. Essa combinação permite que o sistema aproveite ao máximo o paralelismo e a eficiência de execução em clusters, ao mesmo tempo que mantém a expressividade e a concisão da linguagem funcional.
 
-As linguagens funcionais, como Scala, desempenham um papel crucial no tratamento e análise de dados devido à sua abordagem declarativa e ao suporte nativo para operações como map, filter, e reduce. Essas características facilitam a escrita de código mais legível, modular e adequado ao processamento de grandes conjuntos de dados. Além disso, a imutabilidade, amplamente utilizada em paradigmas funcionais, contribui para evitar efeitos colaterais e tornar os algoritmos mais previsíveis e seguros, características essenciais em sistemas de análise de dados.
+As linguagens funcionais, como Scala, desempenham um papel crucial no tratamento e análise de dados devido à sua abordagem declarativa e ao suporte nativo para funções de alta ordem. Essas características facilitam a escrita de código mais legível, modular e adequado ao processamento de grandes conjuntos de dados. Além disso, a imutabilidade, amplamente utilizada em paradigmas funcionais, contribui para evitar efeitos colaterais e tornar os algoritmos mais previsíveis e seguros, características essenciais em sistemas de análise de dados.
 
 Essa combinação torna o paradigma funcional uma escolha ideal para enfrentar os desafios impostos pela manipulação de dados em larga escala, garantindo eficiência, clareza e confiabilidade no desenvolvimento do sistema.
 
@@ -14,26 +14,26 @@ Essa combinação torna o paradigma funcional uma escolha ideal para enfrentar o
 
 ## **2. Configuração do Ambiente**
 
-Para a configuração do ambiente de desenvolvimento, estamos utilizando a IDE **IntelliJ IDEA**, uma ferramenta robusta e amplamente utilizada para projetos em Scala. O processo de configuração do ambiente inclui a instalação do **Scala**, do **Apache Spark** e das bibliotecas necessárias para rodar o projeto.
+Para a configuração do ambiente de desenvolvimento, utilizou-se a IDE **[IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/download/)**, uma ferramenta robusta e amplamente utilizada para projetos em Scala. O processo de configuração do ambiente inclui a instalação do **Scala**, do **Apache Spark** e das bibliotecas necessárias para executar o projeto.
 
 ### **Dependências Necessárias**
 
-As dependências principais do projeto estão definidas no arquivo `build.sbt`, que gerencia as bibliotecas e versões necessárias para compilar e rodar o sistema. As dependências do projeto são:
+As dependências principais do projeto estão definidas no arquivo `build.sbt`, que gerencia as bibliotecas e versões necessárias para compilar e executar o sistema. As dependências do projeto são:
 
-- **Scala 2.12.20**: Versão da linguagem Scala utilizada.
-- **Apache Spark** (versão 3.5.3): Biblioteca principal para processamento de grandes volumes de dados distribuídos.
+- **[Scala 2.12.20](https://www.scala-lang.org/download/2.12.20.html)**: Versão da linguagem Scala utilizada.
+- **[Apache Spark](https://spark.apache.org/releases/spark-release-3-5-3.html)** (versão 3.5.3): Biblioteca principal para processamento de grandes volumes de dados distribuídos.
    - `spark-core`: Bibliotecas essenciais para a execução de tarefas em Spark.
    - `spark-sql`: Extensão do Spark para processamento de dados estruturados com SQL.
-- **Plotly-Scala 0.8.1**: Biblioteca para visualização de dados gráficos integrada com Scala, utilizada para gerar os gráficos e relatórios de análise.
+- **[Plotly-Scala 0.8.1](https://index.scala-lang.org/alexarchambault/plotly-scala)**: Biblioteca para visualização de dados gráficos integrada com Scala, utilizada para gerar os gráficos e relatórios de análise.
 
 ### **Compatibilidade com JDK**
 
 O Scala 2.12.20 é compatível apenas com versões específicas do **JDK**. Para garantir a execução correta do projeto, recomenda-se usar uma das seguintes versões do JDK:
 
-- **JDK 8 (1.8)**
-- **JDK 11**
+- **[JDK 8 (1.8)](https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html)**
+- **[JDK 11](https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html)**
 
-É importante destacar que o Scala 2.12 não é compatível com o **JDK 16 ou versões superiores**, portanto, caso esteja utilizando uma versão mais recente do JDK, será necessário configurar um JDK compatível (8 ou 11) para rodar o projeto corretamente.
+É importante destacar que o Scala 2.12 não é compatível com o **JDK 16 ou versões superiores**, portanto, caso esteja utilizando uma versão mais recente do JDK, será necessário configurar um JDK compatível (8 ou 11) para executar o projeto corretamente.
 
 ### **Conteúdo do arquivo `build.sbt`**
 
@@ -64,7 +64,7 @@ libraryDependencies += "org.plotly-scala" %% "plotly-render" % "0.8.1"
    - No arquivo `build.sbt`, adicione as dependências mencionadas acima para garantir que todas as bibliotecas necessárias sejam baixadas e configuradas.
 
 4. **Execução do Projeto**:
-   - Após a configuração, basta rodar a aplicação dentro do IntelliJ, que já estará configurado com o Apache Spark, Scala e Plotly-Scala.
+   - Após a configuração, basta executar a aplicação dentro do IntelliJ, que já estará configurado com o Apache Spark, Scala e Plotly-Scala.
 
 Com essas dependências e a configuração do ambiente, o sistema estará pronto para ser executado, processando grandes volumes de dados com a ajuda do Apache Spark e gerando visualizações com Plotly-Scala.
 
