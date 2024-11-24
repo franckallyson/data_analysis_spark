@@ -259,8 +259,6 @@ faixaQuartos.show(false)
 
 ## **5. Relatórios e Visualizações**
 
-Entendido! Abaixo está o texto ajustado para incluir os gráficos diretamente no README, utilizando Markdown para incorporar links clicáveis que levam ao gráfico correspondente.
-
 ---
 
 ### Relatórios e Visualizações
