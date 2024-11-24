@@ -32,7 +32,16 @@ object Questao3 extends App {
     .filter(col("distancia_centro") < 5)
     .select("id", "cidade", "bairro", "area", "preco")
 
+  val distantesCentro = dfRenomeado
+    .filter(col("distancia_centro") > 5)
+    .select("id", "cidade", "bairro", "area", "preco")
+
   val proximosCentroMedia = proximosCentro
+    .groupBy("cidade")
+    .agg(avg("preco").alias("preco_medio"),
+      stddev("preco").alias("desvio_padrao"))
+
+  val distantesCentroMedia = distantesCentro
     .groupBy("cidade")
     .agg(avg("preco").alias("preco_medio"),
       stddev("preco").alias("desvio_padrao"))
@@ -42,30 +51,46 @@ object Questao3 extends App {
     (row.getAs[String]("cidade"), row.getAs[Double]("preco_medio"), row.getAs[Double]("desvio_padrao"))
   )
 
+  val distantesCentroColeta = distantesCentroMedia.collect().map(row =>
+    (row.getAs[String]("cidade"), row.getAs[Double]("preco_medio"), row.getAs[Double]("desvio_padrao"))
+  )
+
   val cidades = proximosCentroColeta.map(_._1)
   val medias = proximosCentroColeta.map(_._2)
   val stdDev = proximosCentroColeta.map(_._3)
 
+  val cidadesDistantes = distantesCentroColeta.map(_._1)
+  val mediasDistantes = distantesCentroColeta.map(_._2)
+  val stdDevDistantes = distantesCentroColeta.map(_._3)
+
   // Criando o gráfico de barras
   val trace = Bar(
     x = cidades.toSeq,          // Sequência de cidades
-    y = medias.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double)
-
-  ).withName("Quantidade de Empreendimentos")
+    y = medias.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double
+  ).withName("Próximos do centro")
     .withError_y(
       Data(array=stdDev.toSeq)
         .withVisible(true)
     )
     .withMarker(Marker().withColor(Color.RGBA(255, 165, 0, 0.6))) // Cor diferenciada para o gráfico
 
+  val trace1 = Bar(
+    x = cidadesDistantes.toSeq,          // Sequência de cidades
+    y = mediasDistantes.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double
+  ).withName("Distantes do centro")
+    .withError_y(
+      Data(array=stdDevDistantes.toSeq)
+        .withVisible(true)
+    )
+    .withMarker(Marker().withColor(Color.RGBA(0, 165, 255, 0.6))) // Cor diferenciada para o gráfico
+
   val layout = Layout()
-    .withTitle("Preço Médio dos Empreendimentos próximos ao Centro")
+    .withTitle("Preço Médio dos Empreendimentos próximos/distantes (+- 5km) do Centro ")
     .withXaxis(Axis().withTitle("Cidade"))
     .withYaxis(Axis().withTitle("Preço Médio"))
-    .withShowlegend(false)
 
   // Plotando o gráfico
-  plot("./graficos/questao3.html", Seq(trace), layout)
+  plot("./graficos/questao3.html", Seq(trace, trace1), layout)
 
   // Exibindo o resultado
   proximosCentro.show(false)
