@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Imóveis com preço elevado (> 1.2M) e contrução recente (> 2015)</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Rio de Janeiro, Zona Oeste","São Paulo, Zona Sul","São Paulo, Zona Norte","Rio de Janeiro, Zona Norte","Rio de Janeiro, Zona Leste","Rio de Janeiro, Centro","São Paulo, Zona Oeste","São Paulo, Zona Leste","São Paulo, Centro","Rio de Janeiro, Zona Sul"],"name":"Mais novos e mais caros por bairro-cidade","y":[1.0,7.0,2.0,3.0,2.0,3.0,4.0,3.0,2.0,5.0],"marker":{"color":"rgba(255, 165, 0, 0.6)"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Imóveis com preço elevado (> 1.2M) e contrução recente (> 2015)","yaxis":{"title":"Quantidade"},"xaxis":{"title":"Cidade - Bairro"},"showlegend":false};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

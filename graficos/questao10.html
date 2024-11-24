@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preços por Faixa de Quartos</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["3-4","1-2","4+"],"name":"Preço Médio","y":[1042096.53,964324.88,1131484.78],"error_y":{"visible":true,"array":[345206.76,347272.22,349103.38],"type":"data"},"type":"bar"};
+  var data1 = {"x":["3-4","1-2","4+"],"name":"Preço Mínimo","y":[522900.0,398500.0,641250.0],"type":"bar"};
+  var data2 = {"x":["3-4","1-2","4+"],"name":"Preço Máximo","y":[1817200.0,1660300.0,1848800.0],"type":"bar"};
+
+  var data = [data0, data1, data2];
+  var layout = {"title":"Preços por Faixa de Quartos","yaxis":{"title":"Preço (R$)"},"xaxis":{"title":"Faixa de Quartos"}};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quantidade Média de quartos com desvio padrão</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Número de Quartos"],"y":[2.997],"error_y":{"visible":true,"array":[1.43],"type":"data"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Quantidade Média de quartos com desvio padrão","yaxis":{"title":"Quantidade"},"xaxis":{"title":"Quartos"}};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

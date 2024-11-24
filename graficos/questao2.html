@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preço Médio dos imóveis com Desvio Padrão</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Imóveis"],"name":"Preço Médio","y":[1029180.15],"error_y":{"visible":true,"array":[352134.42],"type":"data"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Preço Médio dos imóveis com Desvio Padrão","yaxis":{"title":"Preço (R$)"},"xaxis":{"title":"Imóveis"}};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

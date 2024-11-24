@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quantidade de Empreendimentos por Cidade (500.000 < Preço > 800.000)</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Curitiba","Belo Horizonte","Porto Alegre"],"name":"Quantidade de Empreendimentos","y":[50.0,154.0,107.0],"marker":{"color":"rgba(255, 165, 0, 0.6)"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Quantidade de Empreendimentos por Cidade (500.000 < Preço > 800.000)","yaxis":{"title":"Quantidade de Empreendimentos"},"xaxis":{"title":"Cidade"},"showlegend":false};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

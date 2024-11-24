@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Preço Médio dos Empreendimentos próximos ao Centro</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Curitiba","Belo Horizonte","São Paulo","Rio de Janeiro","Porto Alegre"],"name":"Quantidade de Empreendimentos","y":[975222.9166666666,786050.0,1705245.0,1386975.7575757576,879662.2222222222],"marker":{"color":"rgba(255, 165, 0, 0.6)"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Preço Médio dos Empreendimentos próximos ao Centro","yaxis":{"title":"Preço Médio"},"xaxis":{"title":"Cidade"},"showlegend":false};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

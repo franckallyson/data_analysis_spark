@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Área Média dos imóveis com Desvio Padrão</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Imóveis"],"name":"Preço Médio","y":[172.17],"error_y":{"visible":true,"array":[74.79],"type":"data"},"type":"bar"};
+
+  var data = [data0];
+  var layout = {"title":"Área Média dos imóveis com Desvio Padrão","yaxis":{"title":"Área"},"xaxis":{"title":"Imóveis"}};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

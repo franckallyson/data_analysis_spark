@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ranking de Preço Médio dos Bairros (Top 5 Caros/Baratos)</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":[651364.52,652602.56,655676.92,665647.12,697131.94],"name":"Mais Baratos","y":["Belo Horizonte, Zona Leste","Belo Horizonte, Centro","Belo Horizonte, Zona Norte","Belo Horizonte, Zona Oeste","Belo Horizonte, Zona Sul"],"marker":{"color":"rgba(70, 130, 180, 0.6)"},"orientation":"h","type":"bar"};
+  var data1 = {"x":[1532421.88,1560590.7,1569820.0,1580950.0,1586978.95],"name":"Mais Caros","y":["São Paulo, Zona Leste","São Paulo, Zona Norte","São Paulo, Centro","São Paulo, Zona Sul","São Paulo, Zona Oeste"],"marker":{"color":"rgba(255, 99, 71, 0.6)"},"orientation":"h","type":"bar"};
+
+  var data = [data0, data1];
+  var layout = {"barmode":"group","title":"Ranking de Preço Médio dos Bairros (Top 5 Caros/Baratos)","yaxis":{"automargin":true,"title":"Bairros"},"xaxis":{"title":"Preço Médio (R$)"}};
+ var config = {"showEditInChartStudio":false};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       
