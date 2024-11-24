@@ -1,6 +1,7 @@
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.SparkSession
 import plotly._, element._, layout._, Plotly._
+import plotly.element.Error.Data
 
 object Questao3 extends App {
 
@@ -33,15 +34,17 @@ object Questao3 extends App {
 
   val proximosCentroMedia = proximosCentro
     .groupBy("cidade")
-    .agg(avg("preco").alias("preco_medio"))
+    .agg(avg("preco").alias("preco_medio"),
+      stddev("preco").alias("desvio_padrao"))
 
   // Coletando os dados para plotagem
   val proximosCentroColeta = proximosCentroMedia.collect().map(row =>
-    (row.getAs[String]("cidade"), row.getAs[Double]("preco_medio"))
+    (row.getAs[String]("cidade"), row.getAs[Double]("preco_medio"), row.getAs[Double]("desvio_padrao"))
   )
 
   val cidades = proximosCentroColeta.map(_._1)
   val medias = proximosCentroColeta.map(_._2)
+  val stdDev = proximosCentroColeta.map(_._3)
 
   // Criando o gráfico de barras
   val trace = Bar(
@@ -49,6 +52,10 @@ object Questao3 extends App {
     y = medias.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double)
 
   ).withName("Quantidade de Empreendimentos")
+    .withError_y(
+      Data(array=stdDev.toSeq)
+        .withVisible(true)
+    )
     .withMarker(Marker().withColor(Color.RGBA(255, 165, 0, 0.6))) // Cor diferenciada para o gráfico
 
   val layout = Layout()
