@@ -373,10 +373,10 @@ Selecionamos imóveis com pelo menos 3 banheiros.
 
 O gráfico apresenta o **preço médio dos empreendimentos com mais de 3 banheiros por cidade**, juntamente com o desvio padrão, que indica a dispersão dos preços em cada local.
 
-- **São Paulo** lidera com o maior preço médio de $ R\$ 1.680.480,00 $ e um desvio padrão de $ R\$ 93.469,98 $, sugerindo um mercado consistente de empreendimentos de alto valor para este perfil.
-- **Rio de Janeiro** segue em segundo lugar, com um preço médio de $ R\$ 1.379.179,31 $ e desvio padrão de $ R\$ 102.339,32 $, refletindo uma ligeira variação nos preços entre os imóveis analisados.
-- **Curitiba** e **Porto Alegre** têm preços médios mais modestos, de $ R\$ 956.361,29 $ e $ R\$ 853.130,95 $,  respectivamente, com desvios padrão próximos de R$ 90.000,00, indicando maior uniformidade nos preços desses mercados.
-- **Belo Horizonte** apresenta o menor preço médio, $ R\$ 735.413,75 $, e o desvio padrão mais baixo, $ R\$ 82.966,74 $, o que pode indicar menor presença de imóveis de luxo ou alta homogeneidade no mercado local.
+- **São Paulo** lidera com o maior preço médio de R\$ 1.680.480,00 e um desvio padrão de R\$ 93.469,98 $, sugerindo um mercado consistente de empreendimentos de alto valor para este perfil.
+- **Rio de Janeiro** segue em segundo lugar, com um preço médio de R\$ 1.379.179,31 e desvio padrão de R\$ 102.339,32, refletindo uma ligeira variação nos preços entre os imóveis analisados.
+- **Curitiba** e **Porto Alegre** têm preços médios mais modestos, de R\$ 956.361,29 e R\$ 853.130,95,  respectivamente, com desvios padrão próximos de R$ 90.000,00, indicando maior uniformidade nos preços desses mercados.
+- **Belo Horizonte** apresenta o menor preço médio, R\$ 735.413,75, e o desvio padrão mais baixo, R\$ 82.966,74, o que pode indicar menor presença de imóveis de luxo ou alta homogeneidade no mercado local.
 
 A análise mostra como o mercado imobiliário se comporta em relação a empreendimentos maiores e com mais infraestrutura (mais banheiros), refletindo as características econômicas e sociais de cada cidade. **São Paulo e Rio de Janeiro** destacam-se por preços elevados e variação moderada, enquanto **Belo Horizonte**, **Curitiba** e **Porto Alegre** apresentam valores mais acessíveis e consistentes.
 
