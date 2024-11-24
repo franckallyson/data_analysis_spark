@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quantidade de Empreendimentos por Cidade de acordo com a faixa de preço</title>
+<script src="https://cdn.plot.ly/plotly-1.52.2.min.js"></script>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+(function () {
+  var data0 = {"x":["Belo Horizonte"],"name":"Valor inferior a 500 Mil","y":[21.0],"marker":{"color":"rgba(0, 165, 255, 0.6)"},"type":"bar"};
+  var data1 = {"x":["Curitiba","Belo Horizonte","Porto Alegre"],"name":"Valor entre 500 e 800 Mil","y":[50.0,154.0,107.0],"marker":{"color":"rgba(255, 165, 0, 0.6)"},"type":"bar"};
+  var data2 = {"x":["Curitiba","Belo Horizonte","São Paulo","Rio de Janeiro","Porto Alegre"],"name":"Valor superior a 800 Mil","y":[153.0,22.0,192.0,213.0,88.0],"marker":{"color":"rgba(0, 255, 0, 0.6)"},"type":"bar"};
+
+  var data = [data0, data1, data2];
+  var layout = {"title":"Quantidade de Empreendimentos por Cidade de acordo com a faixa de preço","yaxis":{"title":"Quantidade de Empreendimentos"},"xaxis":{"title":"Cidade"}};
+ var config = {};
+
+  Plotly.plot('chart', data, layout, config);
+})();
+</script>
+</body>
+</html>
+       

@@ -34,8 +34,24 @@ object Questao4 extends App {
     .filter(col("preco") >= 500000 && col("preco") <= 800000)
     .select("id", "cidade", "bairro", "num_quartos", "preco")
 
+  val imoveisMenosQuinhetos = dfRenomeado
+    .filter(col("preco") < 500000)
+    .select("id", "cidade", "bairro", "num_quartos", "preco")
+
+  val imoveisMaisOitocentos = dfRenomeado
+    .filter(col("preco") > 800000)
+    .select("id", "cidade", "bairro", "num_quartos", "preco")
+
   // Agrupando por cidade e contando o número de empreendimentos
   val imoveisCount = imoveisValorEspecifico
+    .groupBy("cidade")
+    .agg(count("cidade").alias("quantidade_empreendimentos"))
+
+  val imoveisMenosQuinhetosCount = imoveisMenosQuinhetos
+    .groupBy("cidade")
+    .agg(count("cidade").alias("quantidade_empreendimentos"))
+
+  val imoveisMaisOitocentosCount = imoveisMaisOitocentos
     .groupBy("cidade")
     .agg(count("cidade").alias("quantidade_empreendimentos"))
 
@@ -43,27 +59,52 @@ object Questao4 extends App {
   val imoveisColeta = imoveisCount.collect().map(row =>
     (row.getAs[String]("cidade"), row.getAs[Long]("quantidade_empreendimentos"))
   )
+  val imoveisMenosQuinhetosColeta = imoveisMenosQuinhetosCount.collect().map(row =>
+    (row.getAs[String]("cidade"), row.getAs[Long]("quantidade_empreendimentos"))
+  )
+  val imoveisMaisOitocentosColeta = imoveisMaisOitocentosCount.collect().map(row =>
+    (row.getAs[String]("cidade"), row.getAs[Long]("quantidade_empreendimentos"))
+  )
 
   val cidades = imoveisColeta.map(_._1)
   val quantidades = imoveisColeta.map(_._2)
+
+  val cidadesMenosQuinhentos = imoveisMenosQuinhetosColeta.map(_._1)
+  val quantidadesMenosQuinhentos = imoveisMenosQuinhetosColeta.map(_._2)
+
+  val cidadesMaisOitocentos = imoveisMaisOitocentosColeta.map(_._1)
+  val quantidadesMaisOitocentos = imoveisMaisOitocentosColeta.map(_._2)
 
   // Criando o gráfico de barras
   val trace = Bar(
     x = cidades.toSeq,          // Sequência de cidades
     y = quantidades.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double)
 
-  ).withName("Quantidade de Empreendimentos")
+  ).withName("Valor entre 500 e 800 Mil")
     .withMarker(Marker().withColor(Color.RGBA(255, 165, 0, 0.6))) // Cor diferenciada para o gráfico
 
+  val traceMenosQuinhentos = Bar(
+    x = cidadesMenosQuinhentos.toSeq,          // Sequência de cidades
+    y = quantidadesMenosQuinhentos.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double)
+
+  ).withName("Valor inferior a 500 Mil")
+    .withMarker(Marker().withColor(Color.RGBA(0, 165, 255, 0.6))) // Cor diferenciada para o gráfico
+
+  val traceMaisOitocentos = Bar(
+    x = cidadesMaisOitocentos.toSeq,          // Sequência de cidades
+    y = quantidadesMaisOitocentos.map(_.toDouble).toSeq, // Sequência de quantidades (convertido para Double)
+
+  ).withName("Valor superior a 800 Mil")
+    .withMarker(Marker().withColor(Color.RGBA(0, 255, 0, 0.6))) // Cor diferenciada para o gráfico
+
+
   val layout = Layout()
-    .withTitle("Quantidade de Empreendimentos por Cidade (500.000 < Preço > 800.000)")
+    .withTitle("Quantidade de Empreendimentos por Cidade de acordo com a faixa de preço")
     .withXaxis(Axis().withTitle("Cidade"))
     .withYaxis(Axis().withTitle("Quantidade de Empreendimentos"))
-    .withShowlegend(false)
 
   // Plotando o gráfico
-  plot("./graficos/questao4.html", Seq(trace), layout)
-
+  plot("./graficos/questao4.html", Seq(traceMenosQuinhentos, trace, traceMaisOitocentos), layout)
 
 
   // Exibindo o resultado
