@@ -303,6 +303,7 @@ Selecionamos imóveis com distância do centro inferior a 5 km e exibimos o ID, 
 
 **Análise**:  
 Observamos que a maioria dos imóveis mais próximos ao centro possui preços mais elevados, o que pode ser atribuído à maior demanda por imóveis em regiões centrais e com boa infraestrutura. Um ponto interessante é que conforme na questão, o centro das cidades de São Paulo e Rio de Janeiro também são mais caros. 
+
 ---
 
 #### Questão 4: Imóveis de um Valor Específico
@@ -315,6 +316,7 @@ Selecionamos imóveis com preço entre 500.000 e 800.000 e exibimos o ID, cidade
 
 **Análise**:  
 O gráfico mostra que a maior quantidade de imóveis na faixa de preço entre 500.000 e 800.000 está concentrada em Belo Horizonte, com 154 empreendimentos, seguida por Porto Alegre com 107 e Curitiba com 50. Essa diferença pode indicar um mercado imobiliário mais ativo ou uma maior oferta de imóveis dentro dessa faixa de preço em Belo Horizonte. Curitiba, por outro lado, apresenta um número significativamente menor de imóveis nesta faixa, possivelmente refletindo uma menor demanda ou uma distribuição de preços diferente. A predominância em Belo Horizonte sugere que há um equilíbrio interessante entre custo e oferta para a classe média-alta.
+
 ---
 
 #### Questão 5: Número Médio de Quartos por Imóvel
