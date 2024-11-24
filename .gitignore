@@ -4,12 +4,14 @@
 
 # Arquivos de compilação e de construção
 target/
+
 *.class
 *.log
 *.jar
 *.war
 *.ear
 *.db
+
 
 # Dependências de bibliotecas externas
 lib/
