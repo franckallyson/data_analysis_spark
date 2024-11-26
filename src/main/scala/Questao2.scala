@@ -64,7 +64,7 @@ object Questao2 extends App {
   )
 
   // Exibindo apenas o valor da média
-  precoMedio.select("preco_medio").show()
+  precoMedio.show()
 
   // Parando o SparkSession (opcional)
   spark.stop()
