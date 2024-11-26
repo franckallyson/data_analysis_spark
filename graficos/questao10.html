@@ -9,9 +9,9 @@
 <div id="chart"></div>
 <script>
 (function () {
-  var data0 = {"x":["3-4","1-2","4+"],"name":"Preço Médio","y":[1042096.53,964324.88,1131484.78],"error_y":{"visible":true,"array":[345206.76,347272.22,349103.38],"type":"data"},"type":"bar"};
-  var data1 = {"x":["3-4","1-2","4+"],"name":"Preço Mínimo","y":[522900.0,398500.0,641250.0],"type":"bar"};
-  var data2 = {"x":["3-4","1-2","4+"],"name":"Preço Máximo","y":[1817200.0,1660300.0,1848800.0],"type":"bar"};
+  var data0 = {"x":["1-2","3-4","4+"],"name":"Preço Mínimo","y":[398500.0,522900.0,641250.0],"marker":{"color":"rgba(255, 100, 0, 0.6)"},"type":"bar"};
+  var data1 = {"x":["1-2","3-4","4+"],"name":"Preço Médio","y":[964324.88,1042096.53,1131484.78],"marker":{"color":"rgba(0, 0, 255, 0.6)"},"error_y":{"visible":true,"array":[347272.22,345206.76,349103.38],"type":"data"},"type":"bar"};
+  var data2 = {"x":["1-2","3-4","4+"],"name":"Preço Máximo","y":[1660300.0,1817200.0,1848800.0],"marker":{"color":"rgba(0, 255, 0, 0.6)"},"type":"bar"};
 
   var data = [data0, data1, data2];
   var layout = {"title":"Preços por Faixa de Quartos","yaxis":{"title":"Preço (R$)"},"xaxis":{"title":"Faixa de Quartos"}};
