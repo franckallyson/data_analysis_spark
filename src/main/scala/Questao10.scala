@@ -39,6 +39,7 @@ object Questao10 extends App {
 
   // Calculando o preço médio, preço mais barato e preço mais caro por faixa de número de quartos
   val faixaPrecoPorQuartos = dfComFaixasDeQuartos
+    .orderBy("faixa_quartos")
     .groupBy("faixa_quartos")
     .agg(
       bround(avg("preco"), 2).alias("preco_medio"),
@@ -67,6 +68,7 @@ object Questao10 extends App {
       Data(array=desviosPadroes)
       .withVisible(true)          // Mostrar barras de erro
     )
+    .withMarker(Marker().withColor(Color.RGBA(0, 0, 255, 0.6)))
 
 
   val traceMinimo = Bar(
@@ -74,13 +76,14 @@ object Questao10 extends App {
     y = precosMinimos,
 
   ).withName("Preço Mínimo")
+    .withMarker(Marker().withColor(Color.RGBA(255, 100, 0, 0.6)))
 
   val traceMaximo = Bar(
     x = faixas,
     y = precosMaximos,
 
   ).withName("Preço Máximo")
-
+    .withMarker(Marker().withColor(Color.RGBA(0, 255, 0, 0.6)))
   val layout = Layout()
     .withTitle("Preços por Faixa de Quartos")
     .withXaxis(Axis().withTitle("Faixa de Quartos"))
@@ -89,7 +92,7 @@ object Questao10 extends App {
   // Gerando o gráfico
   plot(
     "./graficos/questao10.html",
-    Seq(traceMedio, traceMinimo, traceMaximo),
+    Seq(traceMinimo, traceMedio, traceMaximo),
     layout,
     useCdn = true,
     openInBrowser = true
